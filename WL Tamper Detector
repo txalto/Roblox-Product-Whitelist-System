@@ -1,17 +1,15 @@
--- AdvancedWatcher (also rename this)
 local RunService = game:GetService("RunService")
 
 local CHECK_INTERVAL = 3
 local PRODUCT_FOLDER_NAME = "YourProduct"
-local WHITELIST_SCRIPT_NAME = "AdvancedWhitelist" -- must match actual script name
+local WHITELIST_SCRIPT_NAME = "WhitelistChecker"
 
--- Watchdog loop
 while true do
 	task.wait(CHECK_INTERVAL)
 
 	local whitelistScript = script.Parent:FindFirstChild(WHITELIST_SCRIPT_NAME)
 	if not whitelistScript or not whitelistScript:IsA("Script") or not whitelistScript.Enabled then
-		warn("Whitelist script missing or disabled. Taking countermeasures.")
+		warn("WhitelistChecker script missing or disabled. Taking countermeasures.")
 
 		local product = workspace:FindFirstChild(PRODUCT_FOLDER_NAME)
 		if product then
@@ -21,7 +19,7 @@ while true do
 			product:Destroy()
 		end
 
-		if RunService:IsStudio() == false then
+		if not RunService:IsStudio() then
 			game:Shutdown()
 		end
 
