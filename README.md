@@ -12,9 +12,16 @@ A secure, server-sided whitelist and protection system for Roblox developers dis
 # Setup Instructions
 
 # 1. File Placement
-
 Place the following scripts in `ServerScriptService`:
-Main WL Script
-WL Tamper Detector
+`Main WL Script`
+`WL Tamper Detector`
 
-## Hi
+
+## How to place the scripts?
+
+### 1. Go into your Roblox project in Roblox Studio and go to ServerScriptService
+
+Create a script named `WhitelistChecker` and Copy+Paste the code from `Main WL Script`.
+
+Create one more script named `WhitelistWatcher` and Copy+Paste the code from the `WL Tamper Detector`.
+
