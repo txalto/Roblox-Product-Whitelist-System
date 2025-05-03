@@ -14,3 +14,5 @@ A secure, server-sided whitelist and protection system for Roblox developers dis
 # 1. File Placement
 
 Place the following scripts in `ServerScriptService`:
+Main WL Script
+WL Tamper Script
