@@ -1,0 +1,25 @@
+-- ServerScriptService/WhitelistChecker
+local Players = game:GetService("Players")
+
+local GROUP_ID = 12345678 -- your group ID
+local MIN_RANK = 0 -- change if you want to restrict to certain roles
+
+-- Function to handle unauthorized access
+local function handleUnauthorized(player)
+	warn(player.Name .. " is not authorized to use this product.")
+
+	-- Destroy product
+	local product = workspace:FindFirstChild("YourProduct")
+	if product then
+		product:Destroy()
+	end
+
+	-- Optionally kick player
+	player:Kick("Unauthorized access. Join the group to use this product.")
+end
+
+Players.PlayerAdded:Connect(function(player)
+	if not player:IsInGroup(GROUP_ID) or player:GetRankInGroup(GROUP_ID) < MIN_RANK then
+		handleUnauthorized(player)
+	end
+end)
